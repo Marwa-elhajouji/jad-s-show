@@ -5,7 +5,7 @@ public class MovieShow extends Show {
     private final String yearOfRelease;
     private final MovieType movieType;
 
-    public MovieShow(final String name, final String description, final String director, final String yearOfRelease, final MovieType movieType) {
+     MovieShow(final String name, final String description, final String director, final String yearOfRelease, final MovieType movieType) {
         super(name, description, ShowType.MOVIE);
         this.director = director;
         this.yearOfRelease = yearOfRelease;
@@ -22,5 +22,8 @@ public class MovieShow extends Show {
 
     public MovieType getMovieType() {
         return this.movieType;
+    }
+     public void accept(IShowVisitor visitor) {
+        visitor.visit(this);
     }
 }
